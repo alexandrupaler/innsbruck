@@ -1,0 +1,46 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Annealer lines</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <link href="style.css" rel="stylesheet" />
+    <link href="tabs/tabs.css" rel="stylesheet" />
+
+    <script src="js/cytoscape.min.js"></script>
+    <script src="tabs/tabs.js"></script>
+  </head>
+
+  <body>
+    <div id=title>
+        <div class="tab">
+            <h1 style="float:left">Annealer lines</h1>
+            <button id = "defaultOpen" class="tablinks" onclick="openTab(event, 'cy')">Diagram</button>
+            <button class="tablinks" onclick="openTab(event, 'input')">Matrix</button>
+            <button class="tablinks" onclick="randomGraph(document.getElementById('nrfield').value, document.getElementById('probfail').value)">Random</button>
+            <button class="tablinks" onclick="changeMaxi(document.getElementById('nrfield').value); drawAnnealerLines();">Full</button>
+            <button class="tablinks" onclick="openTab(event, 'matrix')">Messages</button>
+            Nr nodes <input id="nrfield" type=text value=10 size=3 style="display:inline-block"></input>
+            Prob fail <input id="probfail" type="text" value="0.5" size="4" style="display:inline-block"></input>
+            <div id="analysis" style="display:inline-block; background-color: red;"></div>
+        </div>
+    </div>
+    <div class ="tabcontent" id="cy"></div>
+    <div class ="tabcontent" id="matrix"></div>
+    <div class ="tabcontent" id="input">
+        <textarea id="inputmatrix" rows="30" cols="50">
+        </textarea>
+        <br>
+        <input type="button" onclick="processInputMatrix()" value="OK">
+    </div>
+    <script>
+        document.getElementById("defaultOpen").click();
+    </script>
+    <div id="cygraph"></div>
+    <div id="cyrecon"></div>
+    <script src="bigmatrix.js"></script>
+    <script src="analysis.js"></script>
+    <script src="logical.js"> </script>
+    <script src="inputmatrix.js"> </script>
+  </body>
+</html>
+
